@@ -8,13 +8,27 @@
       "files": [
         "*.ts"
       ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
       "extends": [
-        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
       ],
       "rules": {
+        // 允许 非空断言
+        "@typescript-eslint/no-non-null-assertion": "off",
+        // 允许 空函数
+        "@typescript-eslint/no-empty-function": "off",
+        // 允许 未使用的参数
+        "@typescript-eslint/no-unused-vars": "off",
+        // 允许 any
+        "@typescript-eslint/no-explicit-any": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -40,7 +54,10 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        // 允许 在模板中使用否定的 `AsyncPipe`
+        "@angular-eslint/template/no-negated-async": "off"
+      }
     }
   ]
 }
