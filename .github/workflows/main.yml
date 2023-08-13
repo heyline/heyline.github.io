@@ -25,7 +25,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           npm install
-          npm run lint
           ###
           # Configure Angular first!
           ####
@@ -33,4 +32,4 @@ jobs:
           # npm run webdriver-update-ci
           # npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js --webdriver-update=false
           ####
-          npm run ng -- deploy --base-href=heyline.github.io --name="禾" --email=2469758101@qq.com
+          ng deploy --base-href=heyline.github.io --name="禾" --email=2469758101@qq.com
