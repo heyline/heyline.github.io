@@ -28,8 +28,7 @@ jobs:
         run: |
           git config --global user.email "2469758101@qq.com"
           git config --global user.name "禾"
-          ng deploy
-
+          ng deploy --no-silent
 
 
 
