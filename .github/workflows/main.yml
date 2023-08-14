@@ -8,29 +8,22 @@ on:
       - master
       - release/*
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build --prod
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+          cache: 'npm'
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: npm ci
+      - run: npm i -g @angular/cli@15.2.0
+      - run: ng lint
+      - run: ng deploy --name="禾" --email=2469758101@qq.com --no-silent
         with:
-          branch: gh-pages
-          folder: dist/angular-test
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 
 
 
