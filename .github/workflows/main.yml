@@ -8,9 +8,11 @@ on:
     branches:
       - master
       - release/*
+
 concurrency:
-  group: ${{ github.head_ref }}
+  group: build-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
