@@ -24,6 +24,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          npm i -g @angular/cli@15.2.0
           npm ci
           ng lint
           ng deploy --no-silent
