@@ -17,10 +17,5 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - run: |
-          npm ci
-          npm i -g @angular/cli@15.2.0
-      - run: |
-          git config --global user.email "2469758101@qq.com"
-          git config --global user.name "禾"
-          ng deploy --no-silent
+      - run: npm ci
+      - run: npm run deploy --name="禾" --email=2469758101@qq.com
