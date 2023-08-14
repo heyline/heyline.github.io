@@ -12,13 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
       - run: |
           npm ci
           npm i -g @angular/cli@15.2.0
