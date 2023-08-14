@@ -27,7 +27,7 @@ jobs:
           npm i -g @angular/cli@15.2.0
           npm ci
           ng lint
-          ng deploy --no-silent
+          ng deploy --name="禾" --email=2469758101@qq.com --no-silent
 
           # npm test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
           # npm run webdriver-update-ci
