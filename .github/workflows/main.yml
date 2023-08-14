@@ -19,10 +19,17 @@ jobs:
           node-version: 18
           cache: 'npm'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-#      - run: npm ci
+      - run: npm ci
       - run: npm i -g @angular/cli@15.2.0
-      - run: ng lint
-      - run: ng deploy --name="禾" --email=2469758101@qq.com --no-silent
+
+      - name: Deploy to website
+        env:
+          USE_SSH: true
+        run: |
+          git config --global user.email "2469758101@qq.com"
+          git config --global user.name "禾"
+          npm run deploy
+      - run: ng deploy
 
 
 
