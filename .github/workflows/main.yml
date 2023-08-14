@@ -1,5 +1,6 @@
 name: Deploy to GitHub Pages via angular-cli-ghpages
-
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 on:
   schedule:
     - cron: 0 2 * * 1-5
