@@ -23,11 +23,7 @@ jobs:
           npm ci
           npm i -g @angular/cli@15.2.0
       - run: |
-          git remote set-url https://${{secrets.ACCESS_TOKEN}}@github.com/heyline/heyline.github.io.git
+          git remote set-url https://${{secrets.GH_TOKEN}}@github.com/heyline/heyline.github.io.git
           git config --global user.email "2469758101@qq.com"
           git config --global user.name "禾"
           ng deploy --no-silent
-
-
-
-
