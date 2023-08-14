@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -21,8 +23,7 @@ jobs:
       - run: npm i -g @angular/cli@15.2.0
       - run: ng lint
       - run: ng deploy --name="禾" --email=2469758101@qq.com --no-silent
-        with:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 
 
 
