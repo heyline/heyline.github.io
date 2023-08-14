@@ -10,25 +10,14 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18.17.1
-
-      - name: Prepare and deploy
-        env:
+          node-version: 18
+          cache: 'npm'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          npm i -g @angular/cli@15.2.0
-          npm ci
-          ng lint
-          ng deploy --name="禾" --email=2469758101@qq.com --no-silent
-
-          # npm test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
-          # npm run webdriver-update-ci
-          # npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js --webdriver-update=false
+      - run: npm ci
+      - run: npm i -g @angular/cli@15.2.0
+      - run: ng lint
+      - run: ng deploy --name="禾" --email=2469758101@qq.com --no-silent
