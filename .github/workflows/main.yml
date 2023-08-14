@@ -22,4 +22,5 @@ jobs:
           git config --global user.email "2469758101@qq.com"
           git config --global user.name "禾"
           npm run deploy --no-silent
-#      - run: npm run deploy --name="禾" --email=2469758101@qq.com
+     ## 没有 ng 环境 --name="禾" --email=2469758101@qq.com 参数附加错误
+     # - run: npm run deploy --name="禾" --email=2469758101@qq.com
