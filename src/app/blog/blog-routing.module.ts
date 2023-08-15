@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { BlogComponent } from "./blog.component";
 
 const routes: Routes = [
   {
@@ -8,13 +9,13 @@ const routes: Routes = [
   },
   {
     path: "blog",
-    loadChildren: () => import("./blog/blog.module").then(m => m.BlogModule)
+    component: BlogComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class BlogRoutingModule {
 }
